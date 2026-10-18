@@ -1,0 +1,17 @@
+test_id,module,function,args,expected,technique,description
+TC01,decimal_to_binary,decimal_to_binary_iterative,"(5,)",'0b101',ECP,Small positive integer
+TC02,decimal_to_binary,decimal_to_binary_iterative,"(-2,)",'-0b10',ECP,Negative integer
+TC03,decimal_to_binary,decimal_to_binary_iterative,"(0,)",'0b0',BVA,Zero boundary
+TC04,decimal_to_binary,decimal_to_binary_iterative,"(16.16,)",raises:TypeError,ECP,Float input is rejected
+TC05,decimal_to_binary,decimal_to_binary_recursive_helper,"(1000,)",'1111101000',ECP,Large positive integer
+TC06,decimal_to_binary,decimal_to_binary_recursive_helper,"(2,)",'10',BVA,First value that needs recursion
+TC07,decimal_to_binary,decimal_to_binary_recursive,"(40,)",'0b101000',ECP,Positive integer
+TC08,decimal_to_binary,decimal_to_binary_recursive,"('',)",raises:ValueError,BVA,Empty string boundary
+TC09,decimal_to_binary,decimal_to_binary_recursive,"('forty',)",raises:ValueError,ECP,Words instead of digits
+TC10,count_vowels,count_vowels,"('hello world',)",3,ECP,Lowercase sentence
+TC11,count_vowels,count_vowels,"('',)",0,BVA,Empty string boundary
+TC12,count_vowels,count_vowels,"(12345,)",raises:TypeError,ECP,Non-string input is rejected
+TC13,addition_without_arithmetic,add,"(3, 5)",8,ECP,Both positive
+TC14,addition_without_arithmetic,add,"(1, 255)",256,BVA,Carry ripples through 8 bits
+TC15,addition_without_arithmetic,add,"(-7, 2)",-5,ECP,"Mixed signs, negative result"
+TC16,addition_without_arithmetic,add,"(0, 0)",0,BVA,Smallest operands
